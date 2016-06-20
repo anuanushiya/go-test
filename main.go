@@ -2,9 +2,9 @@
 package main
 
 import (
+	"fmt"
 	"github.com/gorilla/mux"
 	"net/http"
-	"utils/log"
 )
 
 func GetStatus(rw http.ResponseWriter, req *http.Request) {
@@ -28,6 +28,6 @@ func main() {
 	route.HandleFunc("/api/status", GetStatus).Methods("GET")
 	route.HandleFunc("/api/version", GetVersion).Methods("GET")
 
-	log.Println("Server listening at ", port)
+	fmt.Println("Server listening at ", port)
 	http.ListenAndServe(port, route)
 }
